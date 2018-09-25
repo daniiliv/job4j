@@ -4,11 +4,9 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-import java.beans.Transient;
-
 /**
  * Test.
- * 
+ *
  * @author Daniil Ivanov (mailto:dania-spb@mail.ru)
  * @version  $ld$
  * @since 0.1
