@@ -11,7 +11,6 @@ import static org.junit.Assert.assertThat;
  * @author Daniil Ivanov
  * @since 7.10.18
  * @version 1.1
- *
  */
 public class ConverterTest {
     /**

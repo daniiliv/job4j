@@ -1,6 +1,7 @@
 package ru.job4j.converter;
 
 /**
+ * @author Daniil Ivanov
  * Корвертор валюты.
  */
 public class Converter {
