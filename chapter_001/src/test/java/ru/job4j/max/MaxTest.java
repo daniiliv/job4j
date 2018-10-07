@@ -37,6 +37,25 @@ public class MaxTest {
         assertThat(result, is(7));
     }
 
+    /**
+     * Method tests method max for 3 digits.
+     */
+    @Test
+    public void whenMaxFrom5and2andminus6Then5() {
+        Max maximum = new Max();
+        int result = maximum.max(5, 2, -6);
+        assertThat(result, is(5));
+    }
+
+    /**
+     * Method tests method max for 3 digits.
+     */
+    @Test
+    public void whenMaxFrom1and2and3Then3() {
+        Max maximum = new Max();
+        int result = maximum.max(1, 2, 3);
+        assertThat(result, is(3));
+    }
 }
 
 

@@ -23,4 +23,16 @@ public class Max {
     public int summation(int first, int second) {
         return first + second;
     }
+
+    /**
+     * Method returns max from 3 numbers.
+     * @param first first number.
+     * @param second second number.
+     * @param third third number.
+     * @return max from two numbers.
+     */
+    public int max(int first, int second, int third) {
+        int temp = this.max(first, second);
+        return this.max(temp, third);
+    }
 }
