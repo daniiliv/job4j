@@ -59,7 +59,7 @@ public class Triangle {
      */
     private boolean exist(double ab, double ac, double bc) {
         boolean res = true;
-        if (ab == 0 || ac == 0 || bc == 0) {
+        if (!((ab + bc > ac) && (ab + ac > bc) && (bc + ac > ab))) {
             res = false;
         }
         return res;
