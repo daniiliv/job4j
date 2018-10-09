@@ -32,7 +32,7 @@ public class Max {
      * @return max from two numbers.
      */
     public int max(int first, int second, int third) {
-        int temp = this.max(first, second);
-        return this.max(temp, third);
+        //int temp = this.max(first, second);
+        return this.max(this.max(first, second), third);
     }
 }
