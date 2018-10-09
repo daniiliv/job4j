@@ -54,16 +54,6 @@ public class FactorialTest {
         assertThat(result, is(expected));
     }
 
-    /**
-     * Method tests calc when n is -5.
-     */
-    @Test
-    public void whenMinus5ThenMinus1() {
-        Factorial fact = new Factorial();
-        int result = fact.calc(-5);
-        int expected = -1;
-        assertThat(result, is(expected));
-    }
 }
 
 
