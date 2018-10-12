@@ -2,8 +2,17 @@ package ru.job4j.loop;
 
 import java.util.function.BiPredicate;
 
+/**
+ * @author Daniil Ivanov
+ * @version $Id$
+ * @since 0.1
+ */
 public class Paint {
-
+    /**
+     * Method rightTrl
+     * @param height height of trl
+     * @return string value.
+     */
     public String rightTrl(int height) {
         return this.loopBy(
                 height,
@@ -11,7 +20,11 @@ public class Paint {
                 (row, column) -> row >= column
         );
     }
-
+    /**
+     * Method leftTrl
+     * @param height height of trl
+     * @return string value.
+     */
     public String leftTrl(int height) {
         return this.loopBy(
                 height,
@@ -19,8 +32,11 @@ public class Paint {
                 (row, column) -> row >= height - column - 1
         );
     }
-
-
+    /**
+     * Method pyramid
+     * @param height height of trl
+     * @return string value.
+     */
     public String pyramid(int height) {
         return this.loopBy(
                 height,
@@ -28,7 +44,11 @@ public class Paint {
                 (row, column) -> row >= height - column - 1 && row + height - 1 >= column
         );
     }
-
+    /**
+     * Method loopBy
+     * @param height height of trl
+     * @return string value.
+     */
     private String loopBy(int height, int weight, BiPredicate<Integer, Integer> predict) {
         StringBuilder screen = new StringBuilder();
         for (int row = 0; row != height; row++) {
