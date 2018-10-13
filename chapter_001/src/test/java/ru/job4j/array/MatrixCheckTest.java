@@ -47,7 +47,7 @@ public class MatrixCheckTest {
                 {true, true, false, true},
                 {false, true, true, true},
                 {true, false, true, true},
-                {true, false, false, false}
+                {true, false, false, true}
         };
         boolean result = check.mono(input);
         assertThat(result, is(false));
@@ -56,7 +56,7 @@ public class MatrixCheckTest {
      * Method tests mono method.
      */
     @Test
-    public void whenDataMonoByFalseThenTrue() {
+    public void whenDataMonoByFalseThenFalse() {
         MatrixCheck check = new MatrixCheck();
         boolean[][] input = new boolean[][] {
                 {false, true, false, true},
@@ -65,7 +65,7 @@ public class MatrixCheckTest {
                 {true, false, false, false}
         };
         boolean result = check.mono(input);
-        assertThat(result, is(true));
+        assertThat(result, is(false));
     }
 
 
