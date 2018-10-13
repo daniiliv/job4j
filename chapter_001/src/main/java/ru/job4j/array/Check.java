@@ -11,23 +11,11 @@ public class Check {
      * @return result of searching.
      */
     public boolean mono(boolean[] data) {
-        boolean result = false;
-        boolean flag = false;
-        for (boolean aData : data) {
-            if (data[0]) {
-                if (!aData) {
-                    result = false;
-                    break;
-                } else {
-                    result = true;
-                }
-            } else {
-                if (aData) {
-                    result = false;
-                    break;
-                } else {
-                    result = true;
-                }
+        boolean result = true;
+        for (int i = 1; i < data.length; i++) {
+            if (data[0] != data[i]) {
+                result = false;
+                break;
             }
         }
         return result;
