@@ -1,5 +1,7 @@
 package ru.job4j.occupation;
 
 public class Engineer extends Occupation {
-    public House buildHouse(House house) {}
+    public House buildHouse(House house) {
+        return new House();
+    }
 }
