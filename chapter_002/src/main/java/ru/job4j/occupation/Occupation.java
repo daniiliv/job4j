@@ -6,4 +6,13 @@ public class Occupation {
     public String getName() {
         return name;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getOccupationName() {
+        return occupationName;
+    }
+    public void setOccupationName(String occupationName) {
+        this.occupationName = occupationName;
+    }
 }

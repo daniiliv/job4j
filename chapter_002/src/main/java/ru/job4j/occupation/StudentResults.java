@@ -5,5 +5,7 @@ public class StudentResults {
     public int getGrade() {
         return grade;
     }
-    public void setGrade() {}
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 }
