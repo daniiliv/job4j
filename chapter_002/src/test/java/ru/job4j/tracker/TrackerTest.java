@@ -95,6 +95,8 @@ public class TrackerTest {
         expected.add(items[3]);
 
         assertThat(result.getAll(), is(expected.getAll()));
+
+
     }
 
     /**

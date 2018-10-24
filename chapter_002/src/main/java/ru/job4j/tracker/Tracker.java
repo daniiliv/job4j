@@ -29,7 +29,6 @@ public class Tracker {
      */
     public Item add(Item item) {
         if (item == null) {
-            item = null;
             return item;
         }
         item.setId(this.generateId());
@@ -55,7 +54,7 @@ public class Tracker {
      * @param item Заявка.
      */
     public void replace(String id, Item item) {
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (this.items[i].getId().equals(id)) {
                 this.items[i] = item;
                 break;
@@ -68,14 +67,15 @@ public class Tracker {
      * @param id Уникальный ключ.
      */
     public void delete(String id) {
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (this.items[i] == null) {
                 continue;
             }
             if (this.items[i].getId().equals(id)) {
-                System.arraycopy(this.items, (i + 1), this.items, i, (this.items.length - 1 - i));
+                System.arraycopy(this.items, (i + 1), this.items, i, (position - 1 - i));
             }
         }
+        position--;
     }
 
     /**
@@ -83,14 +83,7 @@ public class Tracker {
      * @return Массив заявок.
      */
     public Item[] getAll() {
-        int elements = this.items.length;
-        for (int i = 0; i < elements; i++) {
-            if (items[i] == null) {
-                items[i] = items[elements - 1];
-                elements--;
-                i--;
-            }
-        }
+        int elements = position;
         return Arrays.copyOf(items, elements);
     }
 
@@ -101,7 +94,7 @@ public class Tracker {
      */
     public Item[] findByName(String key) {
         int count = 0;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (this.items[i] == null) {
                 continue;
             }
@@ -118,7 +111,7 @@ public class Tracker {
      * @return Заявка либо null.
      */
     public Item findById(String id) {
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (this.items[i] == null) {
                 continue;
             }
