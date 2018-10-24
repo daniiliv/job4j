@@ -86,8 +86,11 @@ public class Tracker {
      * @return Массив заявок.
      */
     public Item[] getAll() {
-        int elements = position;
-        return Arrays.copyOf(items, elements);
+        if (position == 0) {
+            //System.out.println("Nothing to show");
+            return null;
+        }
+        return Arrays.copyOf(items, position);
     }
 
     /**
