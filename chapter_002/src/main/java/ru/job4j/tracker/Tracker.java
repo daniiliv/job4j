@@ -68,14 +68,14 @@ public class Tracker {
      */
     public void delete(String id) {
         for (int i = 0; i < position; i++) {
-            if (this.items[i] == null) {
-                continue;
-            }
-            if (this.items[i].getId().equals(id)) {
+            if (position == 0) {
+                System.out.println("Nothing to delete");
+            } else if (this.items[i].getId().equals(id)) {
                 System.arraycopy(this.items, (i + 1), this.items, i, (position - 1 - i));
+                position--;
             }
         }
-        position--;
+
     }
 
     /**
@@ -95,9 +95,6 @@ public class Tracker {
     public Item[] findByName(String key) {
         int count = 0;
         for (int i = 0; i < position; i++) {
-            if (this.items[i] == null) {
-                continue;
-            }
             if (this.items[i].getName().equals(key)) {
                 items[count++] = items[i];
             }
@@ -112,15 +109,10 @@ public class Tracker {
      */
     public Item findById(String id) {
         for (int i = 0; i < position; i++) {
-            if (this.items[i] == null) {
-                continue;
-            }
             if (this.items[i].getId().equals(id)) {
                 return items[i];
             }
         }
         return null;
     }
-
-
 }
