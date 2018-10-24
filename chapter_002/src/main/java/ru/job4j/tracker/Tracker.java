@@ -53,29 +53,32 @@ public class Tracker {
      * @param id   Уникальный ключ заявки.
      * @param item Заявка.
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
         for (int i = 0; i < position; i++) {
             if (this.items[i].getId().equals(id)) {
                 this.items[i] = item;
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     /**
      * Метод удаляет заявку из массива заявок по заданному уникальному ключу.
      * @param id Уникальный ключ.
      */
-    public void delete(String id) {
+    public boolean delete(String id) {
         for (int i = 0; i < position; i++) {
             if (position == 0) {
-                System.out.println("Nothing to delete");
+                //System.out.println("Nothing to delete");
+                return false;
             } else if (this.items[i].getId().equals(id)) {
                 System.arraycopy(this.items, (i + 1), this.items, i, (position - 1 - i));
                 position--;
+                return true;
             }
         }
-
+        return false;
     }
 
     /**
@@ -98,6 +101,9 @@ public class Tracker {
             if (this.items[i].getName().equals(key)) {
                 items[count++] = items[i];
             }
+        }
+        if (count == 0) {
+            return null;
         }
         return Arrays.copyOf(items, count);
     }
