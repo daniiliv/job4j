@@ -36,7 +36,7 @@ public class StartUITest {
     public void whenUserDeleteItemThenDeletedItem() {
         Tracker tracker = new Tracker();
         Tracker expected = new Tracker();
-        Item items[] = new Item[2];
+        Item[] items = new Item[2];
         items[0] = new Item("name test", "desc test", 1L);
         items[1] = new Item("name test2", "desc test2", 2L);
         tracker.add(items[0]);
