@@ -35,37 +35,18 @@ public class StartUITest {
     @Test
     public void whenUserDeleteItemThenDeletedItem() {
         Tracker tracker = new Tracker();
-        Tracker expected = new Tracker();
         Item[] items = new Item[2];
         items[0] = new Item("name test", "desc test", 1L);
         items[1] = new Item("name test2", "desc test2", 2L);
         tracker.add(items[0]);
         tracker.add(items[1]);
 
-        expected.add(items[1]);
         String inputedId = items[0].getId();
         Input input = new StubInput(new String[]{"3", inputedId, "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.getAll(), is(expected.getAll()));
+        //assertThat(tracker.getAll()[0], is(items[1]));
+        assertThat(tracker.getAll().length, is(1));
     }
-/*
-    @Test
-    public void whenUserFindByidThenItemFound() {
-        Tracker tracker = new Tracker();
-        Item items[] = new Item[3];
-        items[0] = new Item("name test", "desc test", 1L);
-        items[1] = new Item("name test2", "desc test2", 2L);
-        items[2] = new Item("name test3", "desc test3", 3L);
-        for (int i = 0; i < 3; i ++) {
-            tracker.add(items[i]);
-        }
-        String inputedId = items[1].getId();
-        Input input = new StubInput(new String[]{"4", inputedId, "6"});
-
-        new StartUI(input, tracker);
-        assertThat(tracker.findById());
-    }
-    */
 }
 
 
