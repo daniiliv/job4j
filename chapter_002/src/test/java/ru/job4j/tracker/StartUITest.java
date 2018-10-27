@@ -40,12 +40,13 @@ public class StartUITest {
         items[1] = new Item("name test2", "desc test2", 2L);
         tracker.add(items[0]);
         tracker.add(items[1]);
+        Item[] expected = new Item[1];
+        expected[0] = items[1];
 
         String inputedId = items[0].getId();
         Input input = new StubInput(new String[]{"3", inputedId, "6"});
         new StartUI(input, tracker).init();
-        //assertThat(tracker.getAll()[0], is(items[1]));
-        assertThat(tracker.getAll().length, is(1));
+        assertThat(tracker.getAll(), is(expected));
     }
 }
 
