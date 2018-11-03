@@ -30,7 +30,7 @@ class FindItemById implements UserAction {
 
     @Override
     public String info() {
-        return "Find an Item by ID.";
+        return "4. Find an item by Id";
     }
 }
 
@@ -60,7 +60,7 @@ class FindItemsByName implements UserAction {
 
     @Override
     public String info() {
-        return "Find Items by name.";
+        return "5. Find items by name";
     }
 }
 
@@ -170,7 +170,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Add a new Item.";
+            return "0. Add a new Item";
         }
     }
 
@@ -188,9 +188,9 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             Item[] items = tracker.getAll();
             System.out.println("------------ Показать все заявки --------------");
-            if (items.length == 0) {
+            if (items == null) {
                 System.out.println("Заявок нет!");
-            } else {
+            } else if (items != null) {
                 System.out.println("Список заявок: ");
                 for (int i = 0; i < items.length; i++) {
                     System.out.println(items[i]);
@@ -200,7 +200,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Show All Items.";
+            return "1. Show all items";
         }
     }
 
@@ -237,7 +237,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Edit an Item.";
+            return "2. Edit an item";
         }
     }
 
@@ -268,7 +268,7 @@ public class MenuTracker {
 
         @Override
         public String info() {
-            return "Delete an Item.";
+            return "3. Delete an item";
         }
     }
 }
