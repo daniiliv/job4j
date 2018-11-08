@@ -45,4 +45,19 @@ public class ValidateInputTest {
                         .toString())
         );
     }
+
+    @Test
+    public void whenInvalidInputOutOfRange() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"5", "1"})
+        );
+        input.ask("Enter", new int[] {1});
+        assertThat(
+                this.mem.toString(),
+                is(new StringBuilder()
+                        .append("Please, select correct menu option: ")
+                        .append(System.lineSeparator())
+                        .toString())
+        );
+    }
 }
