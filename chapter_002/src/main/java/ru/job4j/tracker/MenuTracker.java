@@ -9,10 +9,10 @@ import java.util.List;
 /**
  * Внешний класс поиска заявки по заданному ID.
  */
-class FindItemById implements UserAction {
-    @Override
-    public int key() {
-        return 4;
+class FindItemById extends BaseAction {
+
+    public FindItemById(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -28,19 +28,15 @@ class FindItemById implements UserAction {
         }
     }
 
-    @Override
-    public String info() {
-        return "4. Find an item by Id";
-    }
 }
 
 /**
  * Внешний класс поиска заявок по заданному имени.
  */
-class FindItemsByName implements UserAction {
-    @Override
-    public int key() {
-        return 5;
+class FindItemsByName extends BaseAction {
+
+    public FindItemsByName(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -56,11 +52,6 @@ class FindItemsByName implements UserAction {
                 System.out.println(items[i]);
             }
         }
-    }
-
-    @Override
-    public String info() {
-        return "5. Find items by name";
     }
 }
 
@@ -120,12 +111,12 @@ public class MenuTracker {
      * Метод заполняет массив.
      */
     public void fillActions() {
-        this.actions.add(new AddItem());
-        this.actions.add(new ShowItems());
-        this.actions.add(new MenuTracker.EditItem());
-        this.actions.add(new MenuTracker.DeleteItem());
-        this.actions.add(new FindItemById());
-        this.actions.add(new FindItemsByName());
+        this.actions.add(new AddItem(0, "Add a new Item"));
+        this.actions.add(new ShowItems(1, "Show all items"));
+        this.actions.add(new MenuTracker.EditItem(2, "Edit an item"));
+        this.actions.add(new MenuTracker.DeleteItem(3, "Delete an item"));
+        this.actions.add(new FindItemById(4, "Find an item by Id"));
+        this.actions.add(new FindItemsByName(5, "Find items by name"));
     }
 
     /**
@@ -151,10 +142,10 @@ public class MenuTracker {
     /**
      * Внутренний нестатический класс добавления заявки в хранилище.
      */
-    public class AddItem implements UserAction {
-        @Override
-        public int key() {
-            return Integer.valueOf(ADD);
+    class AddItem extends BaseAction {
+
+        public AddItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -167,21 +158,16 @@ public class MenuTracker {
             System.out.println("------------ Новая заявка -----------");
             System.out.println(newItem);
         }
-
-        @Override
-        public String info() {
-            return "0. Add a new Item";
-        }
     }
 
 
     /**
      * Внутренний нестатический класс вывода всех заявок хранилища.
      */
-    public class ShowItems implements UserAction {
-        @Override
-        public int key() {
-            return Integer.valueOf(SHOW);
+    public class ShowItems extends BaseAction {
+
+        public ShowItems(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -197,20 +183,15 @@ public class MenuTracker {
                 }
             }
         }
-
-        @Override
-        public String info() {
-            return "1. Show all items";
-        }
     }
 
     /**
      * Внутренний статический класс редактирования заявки по заданному ID.
      */
-    public static class EditItem implements UserAction {
-        @Override
-        public int key() {
-            return Integer.valueOf(EDIT);
+    public static class EditItem extends BaseAction {
+
+        public EditItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -235,19 +216,15 @@ public class MenuTracker {
             }
         }
 
-        @Override
-        public String info() {
-            return "2. Edit an item";
-        }
     }
 
     /**
      * Внутренний статический класс удаления заявки по заданному ID.
      */
-    public static class DeleteItem implements UserAction {
-        @Override
-        public int key() {
-            return Integer.valueOf(DEL);
+    public static class DeleteItem extends BaseAction {
+
+        public DeleteItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -264,11 +241,6 @@ public class MenuTracker {
                     System.out.println(deletedItem);
                 }
             }
-        }
-
-        @Override
-        public String info() {
-            return "3. Delete an item";
         }
     }
 }
